@@ -49,22 +49,25 @@
           }
         },
         {
-          "ruleId": "CS1061",
-          "level": "error",
-          "message": "‘Room’ não contém uma definição para \"Bookings\" e não foi possível encontrar nenhum método de extensão \"Bookings\" que aceite um primeiro argumento do tipo ‘Room’ (você está se esquecendo de usar uma diretiva ou uma referência de assembly?)",
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Desreferência de uma referência possivelmente nula.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///home/rita/Documentos/projetos-trybe/csharp-027-csharp-projeto-trybe-hotel-fase-b/src/TrybeHotel/Repository/TrybeHotelContext.cs",
+                "uri": "file:///home/rita/Documentos/projetos-trybe/csharp-027-csharp-projeto-trybe-hotel-fase-b/src/TrybeHotel/Repository/HotelRepository.cs",
                 "region": {
-                  "startLine": 41,
-                  "startColumn": 26,
-                  "endLine": 41,
-                  "endColumn": 34
+                  "startLine": 25,
+                  "startColumn": 28,
+                  "endLine": 25,
+                  "endColumn": 38
                 }
               }
             }
-          ]
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
         },
         {
           "ruleId": "CS8602",
@@ -107,24 +110,6 @@
           "properties": {
             "warningLevel": 1
           }
-        },
-        {
-          "ruleId": "CS1061",
-          "level": "error",
-          "message": "‘DbSet<Hotel>’ não contém uma definição para \"Include\" e não foi possível encontrar nenhum método de extensão \"Include\" que aceite um primeiro argumento do tipo ‘DbSet<Hotel>’ (você está se esquecendo de usar uma diretiva ou uma referência de assembly?)",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///home/rita/Documentos/projetos-trybe/csharp-027-csharp-projeto-trybe-hotel-fase-b/src/TrybeHotel/Repository/HotelRepository.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 14,
-                  "endLine": 17,
-                  "endColumn": 21
-                }
-              }
-            }
-          ]
         },
         {
           "ruleId": "CA1050",
@@ -175,20 +160,6 @@
               "PortedFromFxCop",
               "Telemetry",
               "EnabledRuleInAggressiveMode"
-            ]
-          }
-        },
-        "CS1061": {
-          "id": "CS1061",
-          "defaultLevel": "error",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1061)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry",
-              "NotConfigurable"
             ]
           }
         },
