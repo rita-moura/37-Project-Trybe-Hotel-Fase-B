@@ -7,6 +7,6 @@ public class Hotel {
   public string? Name {get; set;}
   public string? Address {get; set;}
   public int CityId {get; set;}
-  public IEnumerable<Room>? Rooms {get; set;}
+  public IEnumerable<Room> Rooms {get; set;} = new List<Room>();
   public City? City {get; set;}
 }
