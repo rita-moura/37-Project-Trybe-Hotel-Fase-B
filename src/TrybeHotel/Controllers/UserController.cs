@@ -28,8 +28,8 @@ namespace TrybeHotel.Controllers
         {
             try
             {
-                var userDto = _repository.Add(user);
-                return CreatedAtAction("Add", new { userId = userDto.UserId }, userDto);
+                var newUser = _repository.Add(user);
+                return CreatedAtAction("Add", new { userId = newUser.UserId }, newUser);
             }
             catch (ApplicationException ex)
             {
