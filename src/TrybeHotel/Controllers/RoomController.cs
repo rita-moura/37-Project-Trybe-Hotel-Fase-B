@@ -45,6 +45,7 @@ namespace TrybeHotel.Controllers
         }
 
         [HttpDelete("{RoomId}")]
+        [Authorize(Policy = "Admin")]
         public IActionResult Delete(int RoomId)
         {
             try

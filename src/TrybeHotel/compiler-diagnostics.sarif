@@ -154,27 +154,6 @@
           }
         },
         {
-          "ruleId": "CS8602",
-          "level": "warning",
-          "message": "Desreferência de uma referência possivelmente nula.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///home/rita/Documentos/projetos-trybe/csharp-027-csharp-projeto-trybe-hotel-fase-b/src/TrybeHotel/Repository/HotelRepository.cs",
-                "region": {
-                  "startLine": 25,
-                  "startColumn": 28,
-                  "endLine": 25,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "CS8603",
           "level": "warning",
           "message": "Possível retorno de referência nula.",
@@ -250,6 +229,27 @@
                   "startColumn": 28,
                   "endLine": 32,
                   "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Desreferência de uma referência possivelmente nula.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///home/rita/Documentos/projetos-trybe/csharp-027-csharp-projeto-trybe-hotel-fase-b/src/TrybeHotel/Repository/HotelRepository.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 28,
+                  "endLine": 25,
+                  "endColumn": 38
                 }
               }
             }
