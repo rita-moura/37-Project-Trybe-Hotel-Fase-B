@@ -17,13 +17,27 @@ namespace TrybeHotel.Controllers
         [HttpGet]
         public IActionResult GetCities()
         {
-            return Ok(_repository.GetCities());
+            try
+            {
+               return Ok(_repository.GetCities());
+            }
+            catch (ApplicationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
 
         [HttpPost]
         public IActionResult PostCity([FromBody] City city)
         {
-            return Created("", _repository.AddCity(city));
+            try
+            {
+                return Created("", _repository.AddCity(city));
+            }
+            catch (ApplicationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
     }
 }
