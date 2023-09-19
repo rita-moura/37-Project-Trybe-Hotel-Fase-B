@@ -21,13 +21,28 @@ namespace TrybeHotel.Controllers
         [HttpGet]
         public IActionResult GetHotels()
         {
-            return Ok(_repository.GetHotels());
+            try
+            {
+                return Ok(_repository.GetHotels());
+            }
+            catch (ApplicationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
 
         [HttpPost]
+        [Authorize(Policy = "Admin")]
         public IActionResult PostHotel([FromBody] Hotel hotel)
         {
-            return Created("", _repository.AddHotel(hotel));
+            try
+            {
+                return Created("", _repository.AddHotel(hotel));
+            }
+            catch (ApplicationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
 
 
