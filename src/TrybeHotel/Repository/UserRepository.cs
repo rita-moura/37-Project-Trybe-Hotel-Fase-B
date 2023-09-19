@@ -17,19 +17,19 @@ namespace TrybeHotel.Repository
 
         public UserDto Login(LoginDto login)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Email == login.Email && u.Password == login.Password);
+            var userLogin = _context.Users.FirstOrDefault(u => u.Email == login.Email && u.Password == login.Password);
         
-            if (user == null)
+            if (userLogin == null)
             {
                 return null;
             }
 
             return new UserDto
             {
-                UserId = user.UserId,
-                Name = user.Name,
-                Email = user.Email,
-                UserType = user.UserType
+                UserId = userLogin.UserId,
+                Name = userLogin.Name,
+                Email = userLogin.Email,
+                UserType = userLogin.UserType
             };
         }
 
