@@ -18,20 +18,43 @@ namespace TrybeHotel.Controllers
         }
 
         [HttpGet("{HotelId}")]
-        public IActionResult GetRoom(int HotelId){
-            return Ok(_repository.GetRooms(HotelId));
+        public IActionResult GetRoom(int HotelId)
+        {
+            try
+            {
+                return Ok(_repository.GetRooms(HotelId));
+            }
+            catch (ApplicationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
 
         [HttpPost]
-        public IActionResult PostRoom([FromBody] Room room){
-            return Created(nameof(GetRoom), _repository.AddRoom(room));
+        public IActionResult PostRoom([FromBody] Room room)
+        {
+            try
+            {
+                return Created("", _repository.AddRoom(room));
+            }
+            catch (ApplicationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
 
         [HttpDelete("{RoomId}")]
         public IActionResult Delete(int RoomId)
         {
-           _repository.DeleteRoom(RoomId);
-            return NoContent();
+            try
+            {
+                _repository.DeleteRoom(RoomId);
+                return NoContent();
+            }
+            catch (ApplicationException ex)
+            {
+                return Conflict(new { message = ex.Message });
+            }
         }
     }
 }
