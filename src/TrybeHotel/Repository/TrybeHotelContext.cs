@@ -26,9 +26,9 @@ public class TrybeHotelContext : DbContext, ITrybeHotelContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) 
     {
-        modelBuilder.Entity<City>()
-            .HasMany(c => c.Hotels)
-            .WithOne(h => h.City)
+        modelBuilder.Entity<Hotel>()
+            .HasOne(h => h.City)
+            .WithMany(c => c.Hotels)
             .HasForeignKey(h => h.CityId);
 
         modelBuilder.Entity<Room>()
@@ -46,6 +46,4 @@ public class TrybeHotelContext : DbContext, ITrybeHotelContext
             .WithMany(u => u.Bookings)
             .HasForeignKey(b => b.UserId);
     }
-
-
 }
