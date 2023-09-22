@@ -28,27 +28,6 @@
           }
         },
         {
-          "ruleId": "CS8603",
-          "level": "warning",
-          "message": "Possível retorno de referência nula.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///home/rita/Documentos/projetos-trybe/csharp-027-csharp-projeto-trybe-hotel-fase-b/src/TrybeHotel/Repository/UserRepository.cs",
-                "region": {
-                  "startLine": 24,
-                  "startColumn": 24,
-                  "endLine": 24,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "CA1050",
           "level": "note",
           "message": "Declare types in namespaces",
@@ -142,20 +121,6 @@
           "shortDescription": "Não é possível criar uma instância do analisador",
           "defaultLevel": "warning",
           "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8032)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry"
-            ]
-          }
-        },
-        "CS8603": {
-          "id": "CS8603",
-          "shortDescription": "Possível retorno de referência nula.",
-          "defaultLevel": "warning",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8603)",
           "properties": {
             "category": "Compiler",
             "isEnabledByDefault": true,
