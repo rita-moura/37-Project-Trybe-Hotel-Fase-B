@@ -82,6 +82,11 @@ public class IntegrationTest: IClassFixture<WebApplicationFactory<Program>>
         Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
     }
    
-    
+    [InlineData("/user")]
+    public async Task TestGetUser(string url)
+        {
+            var response = await _clientTest.GetAsync(url);
+            Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
+        }
     
 }
