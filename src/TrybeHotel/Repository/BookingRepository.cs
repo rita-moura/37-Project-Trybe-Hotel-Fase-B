@@ -15,9 +15,9 @@ namespace TrybeHotel.Repository
         {
             var roomToBook = _context.Rooms.Find(booking.RoomId);
 
-            var user = _context.Users.Where(u => u.Email == email).FirstOrDefault();
+            var user = _context.Users.Where((u) => u.Email == email).FirstOrDefault();
 
-            if (roomToBook.Capacity >= booking.GuestQuant)
+            if (roomToBook!.Capacity >= booking.GuestQuant)
             {
                 var bookingToSave = new Booking
                 {
@@ -25,7 +25,7 @@ namespace TrybeHotel.Repository
                     CheckOut = booking.CheckOut,
                     GuestQuant = booking.GuestQuant,
                     RoomId = booking.RoomId,
-                    UserId = user.UserId
+                    UserId = user!.UserId
                 };
 
                 _context.Bookings.Add(bookingToSave);
@@ -41,17 +41,17 @@ namespace TrybeHotel.Repository
                                   GuestQuant = book.GuestQuant,
                                   Room = new RoomDto
                                   {
-                                      RoomId = book.Room.RoomId,
+                                      RoomId = book.Room!.RoomId,
                                       Name = book.Room.Name,
                                       Capacity = book.Room.Capacity,
                                       Image = book.Room.Image,
                                       Hotel = new HotelDto
                                       {
-                                          HotelId = book.Room.Hotel.HotelId,
+                                          HotelId = book.Room.Hotel!.HotelId,
                                           Name = book.Room.Hotel.Name,
                                           Address = book.Room.Hotel.Address,
                                           CityId = book.Room.Hotel.CityId,
-                                          CityName = book.Room.Hotel.City.Name
+                                          CityName = book.Room.Hotel.City!.Name
                                       }
                                   }
                               };
@@ -59,13 +59,48 @@ namespace TrybeHotel.Repository
             }
             else
             {
-                return null;
+                return null!;
             }
         }
 
         public BookingResponse GetBooking(int bookingId, string email)
         {
-            throw new NotImplementedException();
+            var user = _context.Users.Where((u) => u.Email == email).FirstOrDefault();
+
+            var booking = _context.Bookings.Find(bookingId);
+
+            if (booking != null && booking.UserId == user!.UserId)
+            {
+                var response = from book in _context.Bookings
+                    where book.BookingId == bookingId
+                    select new BookingResponse
+                    {
+                        BookingId = book.BookingId,
+                        CheckIn = book.CheckIn,
+                        CheckOut = book.CheckOut,
+                        GuestQuant = book.GuestQuant,
+                        Room = new RoomDto
+                        {
+                            RoomId = book.Room!.RoomId,
+                            Name = book.Room.Name,
+                            Capacity = book.Room.Capacity,
+                            Image = book.Room.Image,
+                            Hotel = new HotelDto
+                            {
+                                HotelId = book.Room.Hotel!.HotelId,
+                                Name = book.Room.Hotel.Name,
+                                Address = book.Room.Hotel.Address,
+                                CityId = book.Room.Hotel.CityId,
+                                CityName = book.Room.Hotel.City!.Name
+                            }
+                        }
+                    };
+                return response.First();
+            }
+            else
+            {
+                return null!;
+            }
         }
 
         public Room GetRoomById(int RoomId)
