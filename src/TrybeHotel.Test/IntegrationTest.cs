@@ -82,6 +82,8 @@ public class IntegrationTest: IClassFixture<WebApplicationFactory<Program>>
         Assert.Equal(System.Net.HttpStatusCode.OK, response?.StatusCode);
     }
    
+    [Trait("Category", "Meus testes")]
+    [Theory(DisplayName = "Executando meus testes")]
     [InlineData("/user")]
     public async Task TestGetUser(string url)
         {
