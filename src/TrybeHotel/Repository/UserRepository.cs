@@ -21,7 +21,7 @@ namespace TrybeHotel.Repository
         
             if (userLogin == null)
             {
-                return null;
+                return null!;
             }
 
             return new UserDto

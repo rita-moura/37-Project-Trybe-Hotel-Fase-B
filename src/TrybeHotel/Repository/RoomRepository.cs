@@ -23,11 +23,11 @@ namespace TrybeHotel.Repository
                     Image = room.Image,
                     Hotel = new HotelDto
                     {
-                        HotelId = room.Hotel.HotelId,
+                        HotelId = room.Hotel!.HotelId,
                         Name = room.Hotel.Name,
                         Address = room.Hotel.Address,
                         CityId = room.Hotel.CityId,
-                        CityName = room.Hotel.City.Name
+                        CityName = room.Hotel.City!.Name
                     }
                 })
                 .ToList();
