@@ -69,7 +69,7 @@ namespace TrybeHotel.Repository
 
         public IEnumerable<UserDto> GetUsers()
         {
-            var users = _context.Users.Select((u) => new UserDto
+            var users = _context.Users.Select(u => new UserDto
             {
                 UserId = u.UserId,
                 Name = u.Name,

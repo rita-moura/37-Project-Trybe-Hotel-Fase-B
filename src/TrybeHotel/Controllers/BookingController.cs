@@ -26,7 +26,7 @@ namespace TrybeHotel.Controllers
             try
             {
                 var token = HttpContext.User.Identity as ClaimsIdentity;
-                var email = token?.Claims.FirstOrDefault((c) => c.Type == ClaimTypes.Email)?.Value;
+                var email = token?.Claims.FirstOrDefault(claims => claims.Type == ClaimTypes.Email)?.Value;
                 var addBooking = _repository.Add(bookingInsert, email!);
 
                 if (addBooking != null)
@@ -52,7 +52,7 @@ namespace TrybeHotel.Controllers
             try
             {
                 var token = HttpContext.User.Identity as ClaimsIdentity;
-                var email = token?.Claims.FirstOrDefault((c) => c.Type == ClaimTypes.Email)?.Value;
+                var email = token?.Claims.FirstOrDefault(claims => claims.Type == ClaimTypes.Email)?.Value;
                 var booking = _repository.GetBooking(Bookingid, email!);
 
                 if (booking != null)

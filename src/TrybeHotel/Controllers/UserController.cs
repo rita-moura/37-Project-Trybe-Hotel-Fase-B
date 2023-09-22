@@ -25,7 +25,8 @@ namespace TrybeHotel.Controllers
             {
                 var users = _repository.GetUsers();
 
-                if (users != null) {
+                if (users != null) 
+                {
 
                     return Ok(users);
                 }
@@ -46,6 +47,7 @@ namespace TrybeHotel.Controllers
             try
             {
                 var newUser = _repository.Add(user);
+                
                 return CreatedAtAction("Add", new { userId = newUser.UserId }, newUser);
             }
             catch (ApplicationException ex)
